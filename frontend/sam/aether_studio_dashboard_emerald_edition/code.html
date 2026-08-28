@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aether Studio - Digital Experiences</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Sora:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#002018",
+                        "on-background": "#c2ebdc",
+                        "secondary-container": "#00bd85",
+                        "secondary-fixed-dim": "#45dfa4",
+                        "on-secondary-fixed-variant": "#005137",
+                        "on-primary": "#003824",
+                        "surface": "#001711",
+                        "surface-dim": "#001711",
+                        "surface-container": "#00251c",
+                        "gold-leaf": "#d97706",
+                        "tertiary": "#f9bd22",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-primary-fixed-variant": "#005236",
+                        "tertiary-fixed-dim": "#f9bd22",
+                        "tertiary-container": "#ce9a00",
+                        "on-error-container": "#ffdad6",
+                        "ink-void": "#022c22",
+                        "primary-fixed": "#6ffbbe",
+                        "inverse-primary": "#006c49",
+                        "on-secondary-container": "#00452e",
+                        "on-surface": "#c2ebdc",
+                        "surface-container-high": "#073026",
+                        "surface-container-lowest": "#00110c",
+                        "surface-bright": "#194035",
+                        "on-secondary": "#003825",
+                        "outline-variant": "#3c4a42",
+                        "background": "#001711",
+                        "on-tertiary": "#402d00",
+                        "primary-container": "#10b981",
+                        "inverse-on-surface": "#0f372c",
+                        "primary-fixed-dim": "#4edea3",
+                        "on-tertiary-container": "#4a3500",
+                        "surface-tint": "#4edea3",
+                        "on-secondary-fixed": "#002114",
+                        "on-primary-fixed": "#002113",
+                        "inverse-surface": "#c2ebdc",
+                        "on-surface-variant": "#bbcabf",
+                        "error": "#ffb4ab",
+                        "error-container": "#93000a",
+                        "outline": "#86948a",
+                        "surface-variant": "#143b30",
+                        "surface-container-highest": "#143b30",
+                        "on-primary-container": "#00422b",
+                        "on-error": "#690005",
+                        "primary": "#4edea3",
+                        "secondary": "#45dfa4",
+                        "seafoam-bright": "#a7f3d0",
+                        "tertiary-fixed": "#ffdf9f",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "deep-forest": "#064e3b",
+                        "secondary-fixed": "#68fcbf"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "gutter-desktop": "32px",
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Sora"],
+                        "headline-md": ["Sora"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-caps": ["JetBrains Mono"],
+                        "body-md": ["Hanken Grotesk"],
+                        "display-lg-mobile": ["Sora"],
+                        "display-lg": ["Sora"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1.1", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(25, 64, 53, 0.2);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(167, 243, 208, 0.1);
+        }
+        .glass-panel-hover:hover {
+            background: rgba(25, 64, 53, 0.4);
+            border: 1px solid rgba(78, 222, 163, 0.4); 
+        }
+        .aether-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #064e3b 100%);
+        }
+        .glow-btn {
+            box-shadow: 0 0 20px rgba(78, 222, 163, 0.25);
+        }
+        .glow-btn:hover {
+            box-shadow: 0 0 30px rgba(78, 222, 163, 0.5);
+            transform: scale(1.02);
+        }
+        .hero-texture {
+            background-image: radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 40%),
+                              radial-gradient(circle at 20% 80%, rgba(249, 189, 34, 0.08) 0%, transparent 40%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl border-b border-white/5 shadow-2xl transition-all ease-out duration-200">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto hidden md:flex">
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-tighter">
+                Aether Studio
+            </div>
+<div class="flex gap-8 items-center font-label-caps text-label-caps">
+<a class="text-on-surface/80 hover:text-primary transition-colors hover:scale-105 hover:bg-white/5 transition-all duration-200 px-3 py-2 rounded" href="#">Services</a>
+<a class="text-on-surface/80 hover:text-primary transition-colors hover:scale-105 hover:bg-white/5 transition-all duration-200 px-3 py-2 rounded" href="#">Portfolio</a>
+<a class="text-on-surface/80 hover:text-primary transition-colors hover:scale-105 hover:bg-white/5 transition-all duration-200 px-3 py-2 rounded" href="#">Stats</a>
+<a class="text-on-surface/80 hover:text-primary transition-colors hover:scale-105 hover:bg-white/5 transition-all duration-200 px-3 py-2 rounded" href="#">Contact</a>
+</div>
+<button class="aether-gradient text-white font-label-caps text-label-caps px-6 py-3 rounded-full hover:scale-105 transition-all duration-200 glow-btn font-bold">
+                Get in Touch
+            </button>
+</div>
+<!-- Mobile Nav Placeholder (Hidden on Desktop) -->
+<div class="flex justify-between items-center h-20 px-margin-mobile md:hidden">
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-tighter text-2xl">
+                Aether Studio
+            </div>
+<button class="text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center justify-center px-margin-desktop overflow-hidden hero-texture">
+<div class="absolute inset-0 z-0 opacity-40 mix-blend-screen"></div>
+<div class="relative z-10 max-w-container-max mx-auto text-center flex flex-col items-center gap-8 mt-16">
+<h1 class="font-display-lg text-display-lg md:text-display-lg text-display-lg-mobile font-display-lg-mobile text-on-surface max-w-4xl mx-auto drop-shadow-lg">
+                    Crafting Digital Experiences That Elevate Brands
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                    We fuse technical mastery with avant-garde thinking to build premium digital products that stand out in the modern landscape.
+                </p>
+<div class="flex flex-col sm:flex-row gap-6 mt-8">
+<button class="aether-gradient text-white font-label-caps text-label-caps px-8 py-4 rounded-full glow-btn transition-all duration-200 ease-out font-bold">
+                        Explore Work
+                    </button>
+<button class="border border-primary text-primary font-label-caps text-label-caps px-8 py-4 rounded-full hover:bg-primary/10 transition-all duration-200 ease-out">
+                        Our Process
+                    </button>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-32 px-margin-desktop bg-surface-container-low" id="services">
+<div class="max-w-container-max mx-auto">
+<div class="mb-16">
+<span class="font-label-caps text-label-caps text-primary px-3 py-1 border border-primary bg-primary/10 rounded-full mb-4 inline-block">Expertise</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Our Services</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Service Card 1 -->
+<div class="glass-panel glass-panel-hover rounded-xl p-8 transition-all duration-300 ease-out flex flex-col h-full group">
+<div class="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">design_services</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 text-2xl">UI/UX Design</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-8">
+                            Creating intuitive, visually stunning interfaces that drive user engagement and reflect premium brand identities.
+                        </p>
+<a class="inline-flex items-center gap-2 text-primary font-label-caps text-label-caps group-hover:gap-4 transition-all" href="#">
+                            Explore <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Service Card 2 -->
+<div class="glass-panel glass-panel-hover rounded-xl p-8 transition-all duration-300 ease-out flex flex-col h-full group">
+<div class="w-12 h-12 rounded-lg bg-secondary/20 flex items-center justify-center mb-6 text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">branding_watermark</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 text-2xl">Brand Identity</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-8">
+                            Developing cohesive visual systems and brand strategies that communicate technical mastery and creative vision.
+                        </p>
+<a class="inline-flex items-center gap-2 text-secondary font-label-caps text-label-caps group-hover:gap-4 transition-all" href="#">
+                            Explore <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Service Card 3 -->
+<div class="glass-panel glass-panel-hover rounded-xl p-8 transition-all duration-300 ease-out flex flex-col h-full group">
+<div class="w-12 h-12 rounded-lg bg-tertiary/20 flex items-center justify-center mb-6 text-tertiary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">code</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 text-2xl">Web Development</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-8">
+                            Engineering performant, scalable, and secure digital platforms using cutting-edge modern tech stacks.
+                        </p>
+<a class="inline-flex items-center gap-2 text-tertiary font-label-caps text-label-caps group-hover:gap-4 transition-all" href="#">
+                            Explore <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Portfolio Section -->
+<section class="py-32 px-margin-desktop bg-surface" id="portfolio">
+<div class="max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-16">
+<div>
+<span class="font-label-caps text-label-caps text-secondary px-3 py-1 border border-secondary bg-secondary/10 rounded-full mb-4 inline-block">Selected Work</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Portfolio</h2>
+</div>
+<a class="hidden md:inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="#">
+                        View All Projects <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Project 1 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/3] mb-6 bg-surface-container border border-primary/20">
+<div class="bg-cover bg-center w-full h-full transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDvd7fjlbiAs7vK3MeDf-LbhyXOECFPtMqU3HK3_o3Voe9pS6n6JETyYJbTqkgWTtHdMll_Q4wfkpCyiOY2q-I-imk09MKqcenqn3z1j2f6aBvAojJFkWZO_n9H_RLY_JbA4hGd7S4awDgENFEXhw03ViDt3Vm14UkkWDk0My0T97KaUYqObYu1y0vJD2RWzARk304ZGv4MHrfigLxvb_roYbJUDpN5IHXK7V3RCSxEiSLDTCUJsja8')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-80"></div>
+</div>
+<div class="flex gap-3 mb-3">
+<span class="font-label-caps text-label-caps px-2 py-1 bg-surface-container-high rounded text-primary">Fintech</span>
+<span class="font-label-caps text-label-caps px-2 py-1 bg-surface-container-high rounded text-primary">UI/UX</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface text-2xl group-hover:text-primary transition-colors">Nexus Financial</h3>
+</div>
+<!-- Project 2 -->
+<div class="group cursor-pointer md:mt-16">
+<div class="relative overflow-hidden rounded-xl aspect-[4/3] mb-6 bg-surface-container border border-primary/20">
+<div class="bg-cover bg-center w-full h-full transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100 mix-blend-luminosity hover:mix-blend-normal" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_tp9wsooKTwIrx8Jr4_cFx77n8jclGcxIXfPt41cFFCnePseKB5YhQBasrvIhbGljfPYvraMGsq4m_HvbSl3f-zEXKLo6mMrE7hF_IK5uxuD9u739hPB1ItzoBCIQ5U8pVOy1Q4djKK3CbNVGyDEr6w1BSc1HSUR_ogM4O1YO5V8XIKaC5NuAz_bVtlGe5dJ08doSnEK0s4aQwAcBA3s3HoMuQtR0uVZP1i8UEVAZtCtKGCjkrxuX')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-80"></div>
+</div>
+<div class="flex gap-3 mb-3">
+<span class="font-label-caps text-label-caps px-2 py-1 bg-surface-container-high rounded text-secondary">E-Commerce</span>
+<span class="font-label-caps text-label-caps px-2 py-1 bg-surface-container-high rounded text-secondary">Mobile App</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface text-2xl group-hover:text-secondary transition-colors">Aura Boutique</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-24 px-margin-desktop border-y border-white/5 bg-surface-container-lowest" id="stats">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 divide-x divide-white/5">
+<div class="text-center px-4">
+<div class="font-display-lg text-display-lg md:text-display-lg text-display-lg-mobile font-display-lg-mobile text-primary mb-2">150+</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">Projects Delivered</div>
+</div>
+<div class="text-center px-4">
+<div class="font-display-lg text-display-lg md:text-display-lg text-display-lg-mobile font-display-lg-mobile text-secondary mb-2">99%</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">Client Satisfaction</div>
+</div>
+<div class="text-center px-4">
+<div class="font-display-lg text-display-lg md:text-display-lg text-display-lg-mobile font-display-lg-mobile text-tertiary mb-2">12</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">Industry Awards</div>
+</div>
+<div class="text-center px-4">
+<div class="font-display-lg text-display-lg md:text-display-lg text-display-lg-mobile font-display-lg-mobile text-primary-container mb-2">5+</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">Years Excellence</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-16 border-t border-white/5">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-margin-desktop max-w-container-max mx-auto">
+<!-- Brand Column -->
+<div class="col-span-1 md:col-span-2 flex flex-col justify-between">
+<div>
+<div class="font-headline-md text-headline-md text-primary mb-4 font-bold tracking-tighter">
+                        Aether Studio
+                    </div>
+<p class="font-body-sm text-body-md text-on-surface-variant max-w-md mb-8">
+                        Technical Mastery &amp; Avant-Garde Thinking. We build digital experiences for the future.
+                    </p>
+</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">
+                    © 2024 Aether Studio. All rights reserved.
+                </div>
+</div>
+<!-- Links Column -->
+<div class="col-span-1 flex flex-col gap-4">
+<h4 class="font-label-caps text-label-caps text-on-surface mb-4 opacity-50">Navigation</h4>
+<a class="font-body-sm text-body-md text-on-surface-variant hover:text-primary transition-colors ease-in-out duration-300" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-md text-on-surface-variant hover:text-primary transition-colors ease-in-out duration-300" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-md text-on-surface-variant hover:text-primary transition-colors ease-in-out duration-300" href="#">Project Inquiry</a>
+<a class="font-body-sm text-body-md text-on-surface-variant hover:text-primary transition-colors ease-in-out duration-300" href="#">Careers</a>
+</div>
+<!-- Contact Form Column -->
+<div class="col-span-1">
+<h4 class="font-label-caps text-label-caps text-on-surface mb-4 opacity-50">Stay Updated</h4>
+<form class="flex flex-col gap-4">
+<input class="bg-surface border border-white/10 rounded-lg px-4 py-3 font-body-sm text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all w-full" placeholder="Email Address" type="email"/>
+<button class="border border-primary text-primary hover:bg-primary/10 font-label-caps text-label-caps px-4 py-3 rounded-lg transition-all w-full text-center" type="submit">
+                        Subscribe
+                    </button>
+</form>
+</div>
+</div>
+</footer>
+</body></html>
